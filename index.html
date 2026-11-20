@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b5cab">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="IIQE P1">
+<title>IIQE Paper 1 · Chapters 6 &amp; 7 — 2024 Edition Q&amp;A</title>
+<style>
+  :root{
+    --ink:#1a2332; --muted:#5a6577; --line:#e3e8ef; --bg:#f4f6f9;
+    --card:#ffffff; --accent:#0b5cab; --accent2:#0e7a5f; --warn:#b45309;
+    --ans-bg:#eef6ff; --exp-bg:#f2faf7; --hot:#d97706;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 18px 80px}
+  header.top{background:linear-gradient(135deg,#0b5cab,#0e7a5f);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:20px}
+  header.top h1{margin:0 0 6px;font-size:1.7rem;line-height:1.25}
+  header.top p{margin:4px 0;opacity:.95;font-size:.98rem}
+  header.top .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 12px;font-size:.8rem;margin-right:8px;margin-top:6px}
+  .summary{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--warn);border-radius:12px;padding:18px 22px;margin-bottom:22px}
+  .summary h2{margin:0 0 10px;font-size:1.1rem;color:var(--warn)}
+  .summary ul{margin:0;padding-left:20px}
+  .summary li{margin:4px 0}
+  .controls{position:sticky;top:10px;z-index:5;display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:18px;box-shadow:0 2px 8px rgba(20,40,80,.06)}
+  .controls button{border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:8px;padding:7px 14px;font-size:.88rem;cursor:pointer;font-weight:600}
+  .controls button:hover{background:var(--accent);color:#fff}
+  .controls .hint{font-size:.82rem;color:var(--muted)}
+  h2.chapter{font-size:1.35rem;margin:30px 0 6px;padding-left:12px;border-left:6px solid var(--accent)}
+  .chap-meta{color:var(--muted);font-size:.9rem;margin:0 0 16px 18px}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:14px;box-shadow:0 1px 3px rgba(20,40,80,.05)}
+  .q-head{display:flex;gap:10px;align-items:flex-start}
+  .q-no{flex:0 0 auto;background:var(--accent);color:#fff;border-radius:8px;min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem}
+  .q-stem{font-weight:600;font-size:1.02rem}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 10px 44px}
+  .meta span{font-size:.72rem;color:var(--muted);background:#f0f3f7;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+  .meta .new2024{color:#fff;background:var(--accent2);border-color:var(--accent2)}
+  ol.opts{list-style:none;margin:0 0 8px 44px;padding:0}
+  ol.opts li{display:flex;gap:10px;padding:7px 12px;border-radius:8px;margin:3px 0;cursor:pointer;border:1px solid transparent}
+  ol.opts li:hover{background:#f6f8fb}
+  ol.opts li.correct{background:#e7f6ec;border-color:#2e7d32}
+  ol.opts li.wrong{background:#fdecea;border-color:#c62828}
+  ol.opts li.correct .opt-key{color:#2e7d32}
+  ol.opts li.wrong .opt-key{color:#c62828}
+  .opt-key{font-weight:700;color:var(--accent);min-width:20px}
+  .feedback{margin:6px 0 0 44px;font-weight:700;font-size:.9rem}
+  .feedback.ok{color:#2e7d32}
+  .feedback.no{color:#c62828}
+  .reveal{margin:6px 0 0 44px}
+  .reveal button{border:1px solid var(--line);background:#f7f9fc;color:var(--accent);border-radius:8px;padding:6px 12px;font-size:.84rem;cursor:pointer;font-weight:600}
+  .reveal button:hover{border-color:var(--accent)}
+  .ans{display:none;margin-top:12px;border-radius:10px;overflow:hidden}
+  .ans.show{display:block}
+  .ans-line{background:var(--ans-bg);border:1px solid #cfe2f7;border-radius:10px 10px 0 0;padding:9px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .ans-key{font-weight:800;color:var(--accent);font-size:1rem}
+  .hot{font-size:.8rem;color:var(--hot);font-weight:700}
+  .exp{background:var(--exp-bg);border:1px solid #cdebe0;border-top:0;border-radius:0 0 10px 10px;padding:10px 14px;font-size:.92rem}
+  .exp b{color:var(--accent2)}
+  .ref{font-size:.78rem;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:34px}
+  /* ---- mobile / iOS & progress ---- */
+  html{-webkit-text-size-adjust:100%}
+  body{-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .controls{row-gap:8px}
+  .controls button{min-height:44px}
+  .controls button:active{background:var(--accent);color:#fff}
+  .controls button.danger{border-color:#c62828;color:#c62828}
+  .controls button.danger:active,.controls button.danger:hover{background:#c62828;color:#fff}
+  .controls .progress{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--accent);white-space:nowrap}
+  .progressbar{flex:1 1 100%;height:6px;background:#e3e8ef;border-radius:999px;overflow:hidden}
+  .progressbar>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s ease}
+  .reveal button{min-height:44px}
+  @media(max-width:640px){
+    .wrap{padding:12px 10px calc(70px + env(safe-area-inset-bottom))}
+    header.top{padding:20px 16px;border-radius:12px}
+    header.top h1{font-size:1.4rem}
+    .summary{padding:16px 16px}
+    .q{padding:14px 14px}
+    .q-stem{font-size:.98rem}
+    ol.opts,.reveal,.meta,.feedback{margin-left:0}
+    ol.opts li{padding:12px 10px;min-height:44px;font-size:1rem}
+    .opt-key{min-width:24px}
+    .reveal button{width:100%}
+    .controls{top:0;border-radius:12px}
+    .q-no{min-width:32px;height:32px;font-size:.88rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>IIQE Paper 1 — Principles &amp; Practice of Insurance</h1>
+  <p>Chapter 6 · Regulatory Framework &nbsp;|&nbsp; Chapter 7 · Ethical and Other Related Issues</p>
+  <p><strong>2024 Edition</strong> (8th Edition, Nov 2024) — updated questions &amp; answers for self-study</p>
+  <span class="tag">Ch 6 weight: 21%</span><span class="tag">Ch 7 weight: 7%</span><span class="tag">Answer + explanation reveal</span>
+</header>
+
+<section class="summary">
+  <h2>What changed: 2021 (7th Ed) → 2024 (8th Ed) — verified against official IA sources</h2>
+  <ul>
+    <li><strong>Chapter 6 — essentially unchanged.</strong> No new numbers, thresholds, dates or legal content: the 2019 licensing regime, GL23 fit &amp; proper, GL24 CPD, ICB and the broker-company rules are identical to the 2021 edition.</li>
+    <li><strong>Chapter 7.4 (AML/CFT) — substantially rewritten</strong>, reflecting the IA’s <b>June 2023 revision of GL3</b> (effective 1 June 2023):</li>
+  </ul>
+  <ol style="margin:4px 0 8px">
+    <li><strong>NEW §7.4.3 “What is Proliferation Financing (PF)”</strong> — FATF-aligned definition + WMD (Control of Provision of Services) Ordinance (Cap. 526) s.4 + UNSO (Cap. 537) sanctions.</li>
+    <li><strong>AMLO renamed</strong> (dropped “(Financial Institutions)”) after the AMLO (Amendment) Ordinance 2022; “Designated Non-Financial Business Professionals (DNFBP)” introduced; max penalty for the most serious offence = HK$1,000,000 fine + 7 years.</li>
+    <li><strong>NEW PEP content + EDD</strong> — definition of “non-Hong Kong PEP”; senior-management approval + establishing source of wealth and source of funds.</li>
+    <li><strong>Risk-based approach expanded</strong> — Institutional ML/TF Risk Assessment (IRA, every 2 years + trigger events) and Customer Risk Assessment (CRA).</li>
+    <li><strong>Targeted financial sanctions</strong> — DPRK Regulation (Cap. 537AE) &amp; Iran (JCPOA) Regulation; breach = 7 years + unlimited fine; screening extended to payees/policy beneficiaries.</li>
+    <li><strong>Record-keeping “5 years”</strong> and <strong>training records “3 years”</strong> now stated explicitly.</li>
+    <li><strong>STR / MLRO section expanded</strong> — statutory reporting to the JFIU; MLRO as central reference point.</li>
+  </ol>
+  <ul>
+    <li><strong>7.1, 7.2, 7.3, 7.5, 7.6 — unchanged</strong> (PDPO six DPPs, direct-marketing Part 6A, four anti-discrimination ordinances, POBO, insurance fraud).</li>
+    <li><strong>Exam weighting unchanged</strong>: Ch6 21%, Ch7 7%; 75 MCQs (Type A + ~10–15% Type B).</li>
+  </ul>
+  <p style="margin:10px 0 0;font-size:.85rem;color:var(--muted)">Questions cross-reference the 2024 Study Notes (e.g. “SN 6.1.1b”). Items tagged <span class="new2024">“2024 new”</span> highlight material added or changed in the 8th Edition. Click “Show answer” to reveal the answer and explanation.</p>
+</section>
+
+<div class="controls">
+  <button id="showAll">Show all</button>
+  <button id="hideAll">Hide all</button>
+  <button id="reset" class="danger">Reset progress</button>
+  <span class="progress"><b id="progCount">0</b>/<span id="progTotal">122</span> answered</span>
+  <div class="progressbar"><div id="progBar"></div></div>
+  <span class="hint">Tip: tap an option to answer — the answer &amp; explanation reveal instantly. Progress is saved on this device.</span>
+</div>
+
+<h2 class="chapter">Chapter 6 — Regulatory Framework of Insurance Industry</h2>
+<p class="chap-meta">Insurance Ordinance (Cap. 41) · Insurance Authority · licensing regime · codes &amp; guidelines (GL10, GL12, GL22, GL23, GL24)</p>
+
+<!-- ============ CHAPTER 6 QUESTIONS ============ -->
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">1</span><span class="q-stem">Before any “person” (including a corporation) may carry on insurance business in or from Hong Kong, it must first obtain authorisation from:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Insurance Authority (IA)</li>
+    <li><span class="opt-key">B.</span>The Hong Kong Federation of Insurers (HKFI)</li>
+    <li><span class="opt-key">C.</span>The Insurance Complaints Bureau (ICB)</li>
+    <li><span class="opt-key">D.</span>The Financial Secretary</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Any person must obtain <b>authorisation from the Insurance Authority</b> before carrying on insurance business in or from Hong Kong. The IO prescribes minimum requirements on paid-up capital, solvency margin, directors &amp; controllers, and adequate reinsurance. <span class="ref">SN 6.1.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">2</span><span class="q-stem">What is the minimum paid-up capital for an authorized insurer carrying on <em>only</em> General business (and no statutory/compulsory business)?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$2 million</li>
+    <li><span class="opt-key">B.</span>HK$10 million</li>
+    <li><span class="opt-key">C.</span>HK$20 million</li>
+    <li><span class="opt-key">D.</span>HK$100 million</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Minimum paid-up capital is <b>HK$10 million</b> if carrying on only General or only Long Term business (without statutory business). It rises to HK$20m for statutory business or composite business; a captive insurer needs only HK$2m. <span class="ref">SN 6.1.1b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">3</span><span class="q-stem">An insurer that carries on statutory (compulsory) insurance business must have minimum paid-up capital of:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$2 million</li>
+    <li><span class="opt-key">B.</span>HK$10 million</li>
+    <li><span class="opt-key">C.</span>HK$20 million</li>
+    <li><span class="opt-key">D.</span>HK$50 million</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">HK$20 million is required if carrying on any <b>statutory (compulsory) insurance business</b> (alone or together with other business), or both General and Long Term business. <span class="ref">SN 6.1.1b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">4</span><span class="q-stem">What minimum paid-up capital applies to a <b>captive insurer</b>?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$20 million</li>
+    <li><span class="opt-key">B.</span>HK$10 million</li>
+    <li><span class="opt-key">C.</span>HK$5 million</li>
+    <li><span class="opt-key">D.</span>HK$2 million</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A <b>captive insurer</b> (which primarily underwrites its founder’s own risks) requires only <b>HK$2 million</b> paid-up capital, and is subject to less stringent supervision. <span class="ref">SN 6.1.1b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">5</span><span class="q-stem">For General business, the “relevant amount” (minimum solvency margin) is calculated on two bases and the higher figure applies. These two bases are:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Paid-up capital and net assets</li>
+    <li><span class="opt-key">B.</span>Premium income and claims outstanding</li>
+    <li><span class="opt-key">C.</span>Investment income and premium income</li>
+    <li><span class="opt-key">D.</span>Claims paid and expenses</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">General-business solvency margin uses <b>premium income</b> and <b>claims outstanding</b> bases — whichever produces the higher figure — subject to a minimum of HK$10m (HK$20m for statutory business). <span class="ref">SN 6.1.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">6</span><span class="q-stem">The minimum solvency margin for Long Term business is not less than:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$10 million</li>
+    <li><span class="opt-key">B.</span>HK$20 million</li>
+    <li><span class="opt-key">C.</span>HK$2 million</li>
+    <li><span class="opt-key">D.</span>HK$500,000</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Long Term business solvency margin is calculated under the Insurance Companies (Margin of Solvency) Regulation, subject to a minimum of <b>HK$2 million</b>. <span class="ref">SN 6.1.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">7</span><span class="q-stem">Which of the following must be “fit and proper” and require the IA’s <em>prior approval</em> before appointment by an authorized insurer?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Controllers, directors and key persons in control functions only</li>
+    <li><span class="opt-key">B.</span>Appointed actuaries only</li>
+    <li><span class="opt-key">C.</span>Claims staff only</li>
+    <li><span class="opt-key">D.</span>Controllers, directors, key persons in control functions and appointed actuaries</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Controllers, directors, key persons in control functions and the <b>appointed actuary</b> of a long-term insurer must all be fit and proper and their appointment requires the IA’s <b>prior approval</b>. <span class="ref">SN 6.1.1d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">8</span><span class="q-stem">The IA’s guideline setting the minimum standard of corporate governance expected of authorized insurers is:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>GL3</li>
+    <li><span class="opt-key">B.</span>GL10</li>
+    <li><span class="opt-key">C.</span>GL23</li>
+    <li><span class="opt-key">D.</span>GL24</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp"><b>GL10</b> is the Guideline on the Corporate Governance of Authorized Insurers. (GL3 = AML/CFT, GL23 = Fit &amp; Proper criteria, GL24 = CPD.) <span class="ref">SN 6.1.1d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">9</span><span class="q-stem">The IO requires authorized insurers to have “adequate reinsurance”. The guideline dealing specifically with reinsurance placed with a <em>related</em> reinsurer is:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>GL9</li>
+    <li><span class="opt-key">B.</span>GL10</li>
+    <li><span class="opt-key">C.</span>GL12</li>
+    <li><span class="opt-key">D.</span>GL22</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp"><b>GL12</b> is the Guideline on Reinsurance with Related Companies. It applies only where an authorized insurer reinsures with a related reinsurer. <span class="ref">SN 6.1.1e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">10</span><span class="q-stem">An insurer carrying on General business must maintain assets in Hong Kong. Under one prescribed method, the amount must not be less than the aggregate of 80% of its net liabilities and:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>the relevant amount</li>
+    <li><span class="opt-key">B.</span>its paid-up capital</li>
+    <li><span class="opt-key">C.</span>its total premium income</li>
+    <li><span class="opt-key">D.</span>its claims reserve</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The amount is <b>80% of net liabilities + the relevant amount</b>. This requirement does not apply to captive insurers or professional (specialist) reinsurers. <span class="ref">SN 6.1.1f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">11</span><span class="q-stem">GL9 (Guideline on Actuarial Review of Insurance Liabilities) requires an annual actuarial review of reserves for which lines of business?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Fire and marine insurance</li>
+    <li><span class="opt-key">B.</span>Employees’ Compensation and Motor insurance</li>
+    <li><span class="opt-key">C.</span>Life and medical insurance</li>
+    <li><span class="opt-key">D.</span>All general business</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">GL9 requires insurers carrying on <b>employees’ compensation and/or motor insurance</b> to commission an annual actuarial review of their claims reserves. It applies to direct insurers and professional reinsurers. <span class="ref">SN 6.1.1f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">12</span><span class="q-stem">Which of the following is <b>not</b> one of the IA’s powers of intervention over an authorized insurer?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Limitation of premium income</li>
+    <li><span class="opt-key">B.</span>Restrictions on investments</li>
+    <li><span class="opt-key">C.</span>Appointment of a manager to assume control</li>
+    <li><span class="opt-key">D.</span>Setting the insurer’s product prices</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Powers of intervention include limiting premium income, restricting investments and new business, custody of assets by a trustee, special actuarial investigation, assumption of control by an IA-appointed manager, and winding up. The IA does <b>not</b> set product prices. <span class="ref">SN 6.1.1g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">13</span><span class="q-stem">The Code of Conduct for Insurers was implemented by the HKFI in May 1999. To whom does it apply?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>All insurance business including corporate policyholders</li>
+    <li><span class="opt-key">B.</span>Reinsurance business only</li>
+    <li><span class="opt-key">C.</span>Individual (not company) policyholders resident in Hong Kong, insured in their private capacity</li>
+    <li><span class="opt-key">D.</span>All policyholders anywhere in the world</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The Code applies to insurance effected in Hong Kong by <b>individual policyholders resident in Hong Kong, in their private capacity only</b> (not companies). <span class="ref">SN 6.1.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">14</span><span class="q-stem">The Insurance Complaints Bureau (ICB) was inaugurated on 16 January 2018 to supersede which body?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Insurance Claims Complaints Bureau (ICCB)</li>
+    <li><span class="opt-key">B.</span>The Office of the Commissioner of Insurance (OCI)</li>
+    <li><span class="opt-key">C.</span>The Insurance Agents Registration Board (IARB)</li>
+    <li><span class="opt-key">D.</span>The Professional Insurance Brokers Association (PIBA)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The ICB superseded the <b>ICCB</b>. It also launched a mediation service (from 16 July 2018) for non-claim disputes. It has <b>no jurisdiction over insurance intermediaries’ misconduct</b>. <span class="ref">SN 6.1.3</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">15</span><span class="q-stem">What is the maximum award the ICB’s Complaints Panel can make against an insurer?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$500,000</li>
+    <li><span class="opt-key">B.</span>HK$1,000,000</li>
+    <li><span class="opt-key">C.</span>HK$5,000,000</li>
+    <li><span class="opt-key">D.</span>HK$10,000,000</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The Complaints Panel can award up to <b>HK$1,000,000</b> against an insurer; the insurer has <b>no right of appeal</b> (the complainant may still seek legal redress). No fee is charged to the complainant. <span class="ref">SN 6.1.3a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">16</span><span class="q-stem">A complaint to the ICB must normally be filed within what period after the insurer notifies its final decision?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>30 days</li>
+    <li><span class="opt-key">B.</span>3 months</li>
+    <li><span class="opt-key">C.</span>1 year</li>
+    <li><span class="opt-key">D.</span>6 months</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The complaint must be filed within <b>6 months</b> from the day the insurer notifies its final decision. Other conditions: monetary nature, ≤HK$1m, personal policy, ICB member insurer, no legal proceedings/arbitration. <span class="ref">SN 6.1.3b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">17</span><span class="q-stem">The new statutory licensing regime for insurance intermediaries took effect on:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>26 June 2017</li>
+    <li><span class="opt-key">B.</span>16 January 2018</li>
+    <li><span class="opt-key">C.</span>23 September 2019</li>
+    <li><span class="opt-key">D.</span>1 August 2021</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The IA took over regulation of insurance intermediaries from the three SROs (IARB, CIB, PIBA) on <b>23 September 2019</b>, replacing the self-regulatory regime (30 Jun 1995 – 22 Sep 2019). <span class="ref">SN 6.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">18</span><span class="q-stem">Which of the following is a “regulated activity” requiring a licence under the IO?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Negotiating or arranging an insurance contract</li>
+    <li><span class="opt-key">B.</span>Inviting or inducing a person to enter into an insurance contract</li>
+    <li><span class="opt-key">C.</span>Giving “regulated advice”</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Regulated activities are: (1) negotiating/arranging an insurance contract; (2) inviting/inducing entry into a contract; (3) inviting/inducing a “material decision”; and (4) giving “regulated advice”. <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">19</span><span class="q-stem">A <b>licensed insurance broker company</b> carries on the regulated activity of negotiating/arranging insurance contracts as agent of:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The insurer</li>
+    <li><span class="opt-key">B.</span>The policyholder / potential policyholder</li>
+    <li><span class="opt-key">C.</span>The Insurance Authority</li>
+    <li><span class="opt-key">D.</span>The Hong Kong Federation of Insurers</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">A licensed insurance broker company acts as agent of the <b>policyholder/potential policyholder</b>. In contrast, an insurance agent acts for the insurer. <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">20</span><span class="q-stem">How many types of licensees are there under the new licensing regime?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>5</li>
+    <li><span class="opt-key">B.</span>3</li>
+    <li><span class="opt-key">C.</span>4</li>
+    <li><span class="opt-key">D.</span>2</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">There are <b>five</b> types of licensees: Licensed Individual Insurance Agent; Licensed Technical Representative (Agent); Licensed Technical Representative (Broker); Licensed Insurance Agency; Licensed Insurance Broker Company. <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">21</span><span class="q-stem">Each licensed insurance agency and each licensed insurance broker company must have at least one:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Appointed actuary</li>
+    <li><span class="opt-key">B.</span>Compliance officer (under GL3)</li>
+    <li><span class="opt-key">C.</span>Responsible officer</li>
+    <li><span class="opt-key">D.</span>Money laundering reporting officer</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Each agency/broker company must appoint at least one <b>responsible officer</b> (who must be a licensed TR(agent) or TR(broker)), and the appointment requires the IA’s <b>prior approval</b>. <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">22</span><span class="q-stem">Section 68 of the IO imposes which liability on an authorized insurer in respect of its appointed insurance agent?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Criminal liability only</li>
+    <li><span class="opt-key">B.</span>Vicarious liability for the agent’s acts in dealings for a contract of insurance</li>
+    <li><span class="opt-key">C.</span>No liability at all</li>
+    <li><span class="opt-key">D.</span>Liability only if the act is within the agent’s authority</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">s.68(1) makes an authorized insurer <b>vicariously liable</b> for any act of a person it appointed as agent in dealings with a client for a contract of insurance, <b>whether or not the act is within the person’s authority</b> (subject to limited exceptions). <span class="ref">SN 6.2.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">23</span><span class="q-stem">Under the IO, a “controller” of a company includes a person who owns or controls, directly or indirectly, not less than what percentage of the issued share capital?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.4</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>5%</li>
+    <li><span class="opt-key">B.</span>10%</li>
+    <li><span class="opt-key">C.</span>20%</li>
+    <li><span class="opt-key">D.</span>15%</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">For a company, a “controller” owns/controls (directly or indirectly, including via trust or bearer shares) not less than <b>15%</b> of issued share capital or voting rights, or exercises ultimate control of management. <span class="ref">SN 6.2.4</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">24</span><span class="q-stem">The IA’s guideline outlining the “fit and proper” criteria for licensed insurance intermediaries is:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.4c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>GL23</li>
+    <li><span class="opt-key">B.</span>GL22</li>
+    <li><span class="opt-key">C.</span>GL24</li>
+    <li><span class="opt-key">D.</span>GL3</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp"><b>GL23</b> (effective 23 Sep 2019) sets out the fit-and-proper criteria. (GL22 = pecuniary penalty, GL24 = CPD, GL3 = AML/CFT.) <span class="ref">SN 6.2.4c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">25</span><span class="q-stem">For an individual licensee, one acceptable education qualification is Level 2 or above in 5 HKDSE subjects, including which two compulsory subjects?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.4c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>English and Chinese</li>
+    <li><span class="opt-key">B.</span>A language subject (Chinese or English) and Mathematics</li>
+    <li><span class="opt-key">C.</span>Mathematics and Liberal Studies</li>
+    <li><span class="opt-key">D.</span>English and Economics</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">HKDSE: Level 2 or above in 5 subjects including <b>a language subject (Chinese or English) and Mathematics</b> (plus a pass in the relevant IIQE papers). HKCEE equivalent is Grade E or above in 5 subjects. <span class="ref">SN 6.2.4c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">26</span><span class="q-stem">A proposed responsible officer is generally expected to hold a bachelor degree and to possess at least how many years’ insurance-industry experience, including management experience?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.4c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>2 years, including 1 year management</li>
+    <li><span class="opt-key">B.</span>3 years, including 1 year management</li>
+    <li><span class="opt-key">C.</span>5 years, including at least 2 years management</li>
+    <li><span class="opt-key">D.</span>10 years, including 5 years management</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A responsible officer is generally expected to have a <b>minimum of 5 years’ insurance-industry experience, including at least 2 years of management experience</b>. <span class="ref">SN 6.2.4c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">27</span><span class="q-stem">Under the Insurance (Maximum Number of Authorized Insurers) Rules, a licensed insurance agency or individual agent may be appointed by a maximum of how many authorized insurers, of which no more than how many may be long-term insurers?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>4 insurers, of which no more than 2 long-term</li>
+    <li><span class="opt-key">B.</span>3 insurers, of which no more than 1 long-term</li>
+    <li><span class="opt-key">C.</span>5 insurers, of which no more than 3 long-term</li>
+    <li><span class="opt-key">D.</span>2 insurers, of which no more than 1 long-term</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Rule 3: a licensed person may be appointed for a maximum of <b>4 authorized insurers, of which no more than 2 may be long-term insurers</b>. <span class="ref">SN 6.2.5a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">28</span><span class="q-stem">Under section 81 of the IO, what is the maximum pecuniary penalty the IA may impose on a regulated person?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$500,000</li>
+    <li><span class="opt-key">B.</span>HK$1,000,000</li>
+    <li><span class="opt-key">C.</span>HK$5,000,000</li>
+    <li><span class="opt-key">D.</span>HK$10,000,000 or 3 times the profit gained / loss avoided, whichever is greater</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The pecuniary penalty must not exceed <b>HK$10,000,000 or 3 times the profit gained or loss avoided</b> (whichever is greater). Other powers: revoke/suspend licence or approval, prohibit application, public/private reprimand. <span class="ref">SN 6.2.5c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">29</span><span class="q-stem">The IA’s guideline on exercising the power to impose a pecuniary penalty (GL22) took effect on:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>26 June 2017</li>
+    <li><span class="opt-key">B.</span>23 September 2019</li>
+    <li><span class="opt-key">C.</span>1 August 2021</li>
+    <li><span class="opt-key">D.</span>16 January 2018</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">GL22 was issued in July 2019 and took effect on <b>23 September 2019</b>. It explains the purposes and factors for imposing a pecuniary penalty. <span class="ref">SN 6.2.5d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">30</span><span class="q-stem">The statutory conduct requirements for licensed insurance intermediaries are set out in which sections of the IO?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Sections 68 and 71</li>
+    <li><span class="opt-key">B.</span>Sections 81 and 95</li>
+    <li><span class="opt-key">C.</span>Sections 90, 91 and 92</li>
+    <li><span class="opt-key">D.</span>Sections 129 and 133</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Sections <b>90, 91 and 92</b> set out conduct requirements for licensed intermediaries, agencies + responsible officers, and broker companies + responsible officers respectively. <span class="ref">SN 6.2.5e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">31</span><span class="q-stem">How many “General Principles” does the Code of Conduct for Licensed Insurance Agents set out?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>8</li>
+    <li><span class="opt-key">B.</span>6</li>
+    <li><span class="opt-key">C.</span>10</li>
+    <li><span class="opt-key">D.</span>5</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Both the Agents’ Code and the Brokers’ Code set out <b>8 General Principles</b> (honesty &amp; integrity; acting fairly/in client’s best interests; care/skill/diligence; competence to advise; disclosure; suitability of advice; conflicts of interest; client assets). <span class="ref">SN 6.2.5f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">32</span><span class="q-stem">Under the Insurance (Financial and Other Requirements for Licensed Insurance Broker Companies) Rules, a licensed insurance broker company must maintain paid-up share capital and net assets each of not less than:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>HK$100,000</li>
+    <li><span class="opt-key">B.</span>HK$300,000</li>
+    <li><span class="opt-key">C.</span>HK$1,000,000</li>
+    <li><span class="opt-key">D.</span>HK$500,000</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">A licensed insurance broker company must at all times maintain <b>paid-up share capital ≥ HK$500,000 and net assets ≥ HK$500,000</b> (transitional lower amounts applied only to 2021–2023). <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">33</span><span class="q-stem">A licensed insurance broker company’s Professional Indemnity Insurance limit of indemnity must be the greater of HK$3,000,000 or:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>1 times its brokerage income (no cap)</li>
+    <li><span class="opt-key">B.</span>2 times its brokerage income, capped at HK$75,000,000</li>
+    <li><span class="opt-key">C.</span>2 times its brokerage income (no cap)</li>
+    <li><span class="opt-key">D.</span>HK$10,000,000 flat</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">PII limit of indemnity (per claim and per 12-month period) must be the greater of <b>HK$3,000,000</b> or <b>2 × brokerage income</b> in the preceding 12 months, <b>capped at HK$75,000,000</b>. First-year companies need at least HK$3,000,000. <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">34</span><span class="q-stem">A licensed insurance broker company that holds client monies must maintain a client account that includes which word in its title, and reconcile it at least how often?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>“trust” — annually</li>
+    <li><span class="opt-key">B.</span>“segregated” — quarterly</li>
+    <li><span class="opt-key">C.</span>“client” — at least once a calendar month</li>
+    <li><span class="opt-key">D.</span>“premium” — weekly</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The account must bear the word <b>“client”</b> in its title and be reconciled <b>at least once a calendar month</b>. <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">35</span><span class="q-stem">For how long must a licensed insurance broker company retain the records required under the Rules?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 years</li>
+    <li><span class="opt-key">B.</span>7 years</li>
+    <li><span class="opt-key">C.</span>5 years</li>
+    <li><span class="opt-key">D.</span>2 years</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Records required under the Rules must be kept in English/Chinese and retained for at least <b>7 years</b>. <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">36</span><span class="q-stem">Under GL24, how many CPD hours must an individual licensee (other than restricted-scope travel TR(agent)) earn in each Assessment Period, including how many on “Ethics or Regulations”?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>15 hours, including at least 3 hours on Ethics/Regulations</li>
+    <li><span class="opt-key">B.</span>10 hours, including at least 2 hours on Ethics/Regulations</li>
+    <li><span class="opt-key">C.</span>12 hours, including at least 3 hours on Ethics/Regulations</li>
+    <li><span class="opt-key">D.</span>15 hours with no mandatory topic</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The CPD requirement is <b>15 hours per Assessment Period (1 Aug – 31 Jul), including ≥3 hours on “Ethics or Regulations”</b>. This increased from 10 hours under the old self-regulatory regime. <span class="ref">SN 6.2.5h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">37</span><span class="q-stem">Under GL24, what is the maximum number of CPD hours an individual licensee may earn per Assessment Period through E-learning (Type 1 or Type 7) activities?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>5 hours</li>
+    <li><span class="opt-key">B.</span>10 hours</li>
+    <li><span class="opt-key">C.</span>3 hours</li>
+    <li><span class="opt-key">D.</span>7 hours</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The E-learning cap is <b>7 CPD hours</b> per Assessment Period (raised from 5 hours by the IA’s 2 Aug 2021 interpretation note). <span class="ref">SN 6.2.5h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">38</span><span class="q-stem">An individual licensee must submit the CPD Declaration Form to the IA by which deadline?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>31 July (end of assessment period)</li>
+    <li><span class="opt-key">B.</span>31 December</li>
+    <li><span class="opt-key">C.</span>30 September (2 months after the assessment period ends)</li>
+    <li><span class="opt-key">D.</span>31 March</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The CPD Declaration must be filed no later than <b>2 months after the assessment period ends, i.e. by 30 September</b>. Excess hours cannot be carried forward; evidence must be kept 3 years. <span class="ref">SN 6.2.5h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">39</span><span class="q-stem">A technical representative (agent) licensed only for restricted-scope travel business must earn at least how many CPD hours per Assessment Period?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>15 hours</li>
+    <li><span class="opt-key">B.</span>3 hours</li>
+    <li><span class="opt-key">C.</span>10 hours</li>
+    <li><span class="opt-key">D.</span>0 hours</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Restricted-scope travel business TR(agent)s need only <b>3 CPD hours</b> per Assessment Period and are not required to do the “Ethics or Regulations” topic. <span class="ref">SN 6.2.5h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">40</span><span class="q-stem">Under the new regime, which of the following is a correct statement about the disclosure of information to clients by a licensed insurance agent?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The agent must disclose its name, licence number, licence type, and appointing insurer/agency</li>
+    <li><span class="opt-key">B.</span>The agent may conceal its licence number until the client asks</li>
+    <li><span class="opt-key">C.</span>No disclosure of identity is required</li>
+    <li><span class="opt-key">D.</span>Only the insurer’s name needs to be disclosed</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">GP5 requires disclosure of the agent’s <b>name, licence number, licence type, and appointing insurer/agency</b> (and the insurer represented for each transaction). <span class="ref">SN 6.2.5f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">41</span><span class="q-stem">Which of the following is <b>not</b> a regulated activity for the licensing requirement?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Negotiating an insurance contract</li>
+    <li><span class="opt-key">B.</span>Inviting a person to make a material decision</li>
+    <li><span class="opt-key">C.</span>Giving regulated advice</li>
+    <li><span class="opt-key">D.</span>Discharging only clerical or administrative duties for an authorized insurer</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The IO <b>exempts</b> the discharge of only clerical/administrative duties for an authorized insurer or licensed intermediary, plus several other classes (solicitors, accountants, actuaries, loss assessors, etc.). <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">42</span><span class="q-stem">The ICB’s Complaints Panel, in making a ruling, must have regard to and act in conformity with the terms of the relevant policy, general principles of good insurance practice, applicable law, and codes/guidelines issued by:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Insurance Authority only</li>
+    <li><span class="opt-key">B.</span>The Monetary Authority only</li>
+    <li><span class="opt-key">C.</span>The HKFI or the ICB</li>
+    <li><span class="opt-key">D.</span>The Equal Opportunities Commission only</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The Panel has regard to codes/guidelines issued by the <b>HKFI or the ICB</b>; policy terms prevail unless they would produce an unfair/unreasonable result to the complainant. <span class="ref">SN 6.1.3a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">43</span><span class="q-stem">Under the “multiple capacities” restrictions, a licensed technical representative (agent) must not:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.3</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Act for a broker company</li>
+    <li><span class="opt-key">B.</span>Act beyond the agency’s scope of licensed business, or be a TR(agent) of another agency</li>
+    <li><span class="opt-key">C.</span>Receive premiums in cash</li>
+    <li><span class="opt-key">D.</span>Give regulated advice at all</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A TR(agent) must neither <b>act beyond the agency’s scope of licensed business</b> nor be a TR(agent) of another agency. Similar “no dual-capacity” restrictions apply to agency/broker-company personnel. <span class="ref">SN 6.2.3</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">44</span><span class="q-stem">Which body is responsible for the direct licensing and regulation of all insurance intermediaries in Hong Kong from 23 September 2019?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Insurance Authority (IA)</li>
+    <li><span class="opt-key">B.</span>The three SROs (IARB, CIB, PIBA)</li>
+    <li><span class="opt-key">C.</span>The HKFI</li>
+    <li><span class="opt-key">D.</span>The Office of the Commissioner of Insurance (OCI)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">From 23 Sep 2019 the <b>IA</b> directly licenses and regulates all insurance intermediaries, taking over from the three SROs. The OCI had already been disbanded on 26 Jun 2017. <span class="ref">SN 6.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">45</span><span class="q-stem">For how long were “deemed licensees” (intermediaries registered with an SRO immediately before the new regime) treated as licensed by the IA under the transitional arrangements?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>1 year</li>
+    <li><span class="opt-key">B.</span>2 years</li>
+    <li><span class="opt-key">C.</span>6 months</li>
+    <li><span class="opt-key">D.</span>3 years</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Deemed licensees were treated as licensed for <b>three years</b>, with the IA staggering invitation to apply for formal licences over the 3-year transitional period from 23 Sep 2019. <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">46</span><span class="q-stem">In addition to satisfying the "fit and proper" requirement, an individual licensee must be a Hong Kong permanent resident or:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.4c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Hold an appropriate immigration visa/permit</li>
+    <li><span class="opt-key">B.</span>Have resided in Hong Kong for at least 10 years</li>
+    <li><span class="opt-key">C.</span>Be a citizen of a FATF-member country</li>
+    <li><span class="opt-key">D.</span>Hold a current insurance policy in Hong Kong</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">An individual licensee must be a <b>Hong Kong permanent resident</b> or <b>hold an appropriate immigration visa/permit</b>. <span class="ref">SN 6.2.4c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">47</span><span class="q-stem">Under GL22 (pecuniary penalty guideline), which statement about the relative severity of sanctions is correct?</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>A pecuniary penalty is more severe than a reprimand, and a public reprimand is more severe than a private one</li>
+    <li><span class="opt-key">B.</span>A private reprimand is more severe than a public reprimand</li>
+    <li><span class="opt-key">C.</span>A reprimand is more severe than a pecuniary penalty</li>
+    <li><span class="opt-key">D.</span>All sanctions are of equal severity</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">GL22 sets out that a <b>pecuniary penalty is more severe than a reprimand</b>, and a <b>public reprimand is more severe than a private one</b>. <span class="ref">SN 6.2.5d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">48</span><span class="q-stem">A licensed insurance broker company that holds client monies must reconcile its client account(s) at least:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Once a calendar month</li>
+    <li><span class="opt-key">B.</span>Once every quarter</li>
+    <li><span class="opt-key">C.</span>Once a year</li>
+    <li><span class="opt-key">D.</span>Whenever a transaction is large</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The client account(s) must be <b>reconciled at least once a calendar month</b>. <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">49</span><span class="q-stem">A licensed insurance broker company must submit audited financial statements to the IA, and the auditor's report must state compliance with:</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Capital and net assets requirements</li>
+    <li><span class="opt-key">B.</span>Professional indemnity insurance requirements</li>
+    <li><span class="opt-key">C.</span>Client account and books/records requirements</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The auditor's report must state compliance with the <b>capital/net assets, PII, client account and books</b> requirements — i.e. all of the above. <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">50</span><span class="q-stem">Which of the following are policy objectives of establishing the Insurance Authority (IA)?<br>(i) Modernise the regulatory infrastructure to facilitate stable industry development<br>(ii) Provide better protection for policyholders and potential policyholders<br>(iii) Align Hong Kong with international practice that regulators be financially and operationally independent of government and industry<br>(iv) Set up a direct regulatory regime for intermediaries to replace the self-regulatory system</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are stated <b>policy objectives</b> of setting up the IA. <span class="ref">SN 6.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">51</span><span class="q-stem">Which of the following are functions of the IA under the Insurance Ordinance (Cap. 41)?<br>(i) Regulate the conduct of insurance intermediaries through a licensing regime<br>(ii) Promote understanding by policyholders of insurance products and the industry<br>(iii) Formulate regulatory strategies and facilitate sustainable market development<br>(iv) Assist the Financial Secretary in maintaining the financial stability of Hong Kong</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">These are all <b>functions of the IA</b>. (It also conducts studies into matters affecting the industry.) <span class="ref">SN 6.1.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">52</span><span class="q-stem">Before authorising an insurer, the IA will consider minimum requirements relating to which of the following?<br>(i) Paid-up capital<br>(ii) Solvency margin<br>(iii) Directors and controllers<br>(iv) Adequate reinsurance arrangement</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The minimum requirements relate to <b>paid-up capital, solvency margin, directors and controllers, and adequate reinsurance arrangement</b> — all of the above. <span class="ref">SN 6.1.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">53</span><span class="q-stem">Which of the following statements about the solvency margin are correct?<br>(i) For General business, the relevant amount is the higher of the premium-income or claims-outstanding basis, with a minimum of HK$10 million<br>(ii) For Long Term business, the minimum solvency margin is HK$10 million<br>(iii) For a captive insurer, the minimum is HK$2 million<br>(iv) For composite business, the Long Term part follows Long Term rules and the General part follows General rules</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (iii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(ii) is wrong — the <b>Long Term</b> minimum solvency margin is <b>HK$2 million</b>, not HK$10 million. (i), (iii) and (iv) are correct. <span class="ref">SN 6.1.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">54</span><span class="q-stem">In assessing "fit and proper" status, the IA considers which of the following?<br>(i) Education, qualifications or experience<br>(ii) Reputation, character, reliability and integrity<br>(iii) Financial status or solvency<br>(iv) Disciplinary action taken by any other authority or regulatory organisation</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">These are all matters the IA considers (together with group information and the state of the person's other businesses). <span class="ref">SN 6.1.1d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">55</span><span class="q-stem">Which of the following are provisions of the Insurance Ordinance (Cap. 41)?<br>(i) A General business insurer must maintain assets in Hong Kong of not less than 80% of net liabilities plus the relevant amount<br>(ii) Separate accounts must be maintained for each class of long-term business<br>(iii) Electronic submission of returns is permitted under the Electronic Transactions Ordinance<br>(iv) From June 2000, the IA may disclose financial/statistical information of individual insurers in the public interest</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are correct provisions of the IO. <span class="ref">SN 6.1.1f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">56</span><span class="q-stem">Which of the following are powers of intervention available to the IA (in escalating order)?<br>(i) Limit premium income<br>(ii) Restrict investments (type and/or location)<br>(iii) Restrict new business<br>(iv) Appoint a manager to assume control in serious cases</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.1g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All are powers of intervention; the full ladder continues with requiring a special actuarial investigation and, in extreme cases, petitioning to wind up the insurer. <span class="ref">SN 6.1.1g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">57</span><span class="q-stem">Under the Code of Conduct for Insurers, claims must not be denied unreasonably, including for which of the following?<br>(i) Innocent misrepresentation of a material fact (except marine/aviation)<br>(ii) A non-fraudulent breach of warranty that did not cause the loss<br>(iii) Non-payment of premium<br>(iv) Fraudulent claims</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(ii) and (iii) only</li>
+    <li><span class="opt-key">D.</span>(i), (ii) and (iv) only</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Claims must not be denied unreasonably for <b>innocent misrepresentation</b> (except marine/aviation) or a <b>non-fraudulent breach of warranty that did not cause the loss</b>. (iii) and (iv) may be valid grounds for denial. <span class="ref">SN 6.1.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">58</span><span class="q-stem">Which of the following statements about the ICB's Insurance Claims Complaints Panel are correct?<br>(i) It is led by an independent Chairman appointed by the ICB with the prior consent of the Secretary for Financial Services and the Treasury<br>(ii) It has four members — two from the insurance industry and two from outside<br>(iii) No fee is charged to the complainant (win or lose)<br>(iv) It can award up to HK$1,000,000 against an insurer, against which the insurer has a right of appeal</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — the <b>insurer has no right of appeal</b> against a Panel award (the complainant may seek legal redress). (i), (ii) and (iii) are correct. <span class="ref">SN 6.1.3a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">59</span><span class="q-stem">A complaint falls within the ICB's terms of reference where:<br>(i) It is monetary in nature and the claim amount/value does not exceed HK$1,000,000<br>(ii) The insurer is an ICB member<br>(iii) The policy is a personal insurance policy<br>(iv) It arises from commercial, industrial or third-party insurance</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.1.3b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — complaints <b>arising from commercial, industrial or third-party insurance are excluded</b>. (i), (ii) and (iii) are within the terms of reference. <span class="ref">SN 6.1.3b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">60</span><span class="q-stem">Which of the following are "regulated activities" requiring a licence under the IO?<br>(i) Negotiating or arranging an insurance contract<br>(ii) Inviting or inducing (or attempting to invite/induce) a person to enter into an insurance contract<br>(iii) Giving regulated advice<br>(iv) Discharging only clerical or administrative duties</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is an <b>exemption</b>, not a regulated activity. The regulated activities are (i), (ii), (iii) plus inviting/inducing a person to make a "material decision". <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">61</span><span class="q-stem">Which of the following are exempt from the intermediary licensing requirement?<br>(i) Solicitors and certified public accountants<br>(ii) Employees of reinsurance-only insurers or captive insurers<br>(iii) Loss assessment and settling claims on behalf of an authorised insurer<br>(iv) Advice to a "specified company" (wholly-owned group company)</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All are listed <b>exemptions</b> (along with actuaries/trust companies, media communications, and certain authorised-insurer employees). <span class="ref">SN 6.2.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">62</span><span class="q-stem">Under section 68, where an agent is appointed by more than one insurer:<br>(i) If only one insurer's appointment covers the line of business (the "empowering insurer"), that insurer is liable<br>(ii) If the act is within the authority of two or more insurers, they are jointly and severally liable<br>(iii) If not within the authority of any of them, all those insurers are jointly and severally liable<br>(iv) An insurer is always liable, even if the agent disclosed that the act was outside his authority before the client relied on it</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — an insurer is <b>not liable</b> if the act was outside the agent's authority AND the agent disclosed that fact to the client before reliance. (i), (ii) and (iii) are correct. <span class="ref">SN 6.2.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">63</span><span class="q-stem">Under section 81 of the IO, which of the following disciplinary actions may the IA take for "misconduct"?<br>(i) Revoke or suspend a licence or an approval<br>(ii) Prohibit a person from applying to be licensed or appointed as a responsible officer<br>(iii) Reprimand publicly or privately<br>(iv) Order a pecuniary penalty not exceeding HK$10,000,000 or 3 times the profit gained/loss avoided</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are within the IA's <b>section 81 disciplinary powers</b>. <span class="ref">SN 6.2.5c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">64</span><span class="q-stem">Which of the following are General Principles in the Codes of Conduct for Licensed Insurance Agents/Brokers?<br>(i) Honesty and Integrity<br>(ii) Suitability of advice<br>(iii) Conflicts of interest<br>(iv) Client assets</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are General Principles (the eight also include acting fairly/in the client's best interests, care/skill/diligence, competence to advise and disclosure of information). <span class="ref">SN 6.2.5f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">65</span><span class="q-stem">Which of the following statements about a licensed insurance broker company's Professional Indemnity Insurance (PII) are correct?<br>(i) The limit of indemnity applies per claim and per 12-month period<br>(ii) It must be the greater of HK$3,000,000 or 2 times the brokerage income in the preceding 12 months<br>(iii) The formula amount is capped at HK$75,000,000<br>(iv) The deductible must not be more than 50% of net assets</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are correct. (First-year companies have a flat HK$3,000,000 minimum, and automatic reinstatement is required.) <span class="ref">SN 6.2.5g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">66</span><span class="q-stem">Under GL24, which of the following apply to an individual licensee (other than a restricted-scope travel TR(agent))?<br>(i) Earn at least 15 CPD hours per Assessment Period<br>(ii) Include at least 3 hours on "Ethics or Regulations"<br>(iii) A maximum of 7 CPD hours may be earned by e-learning<br>(iv) File the CPD Declaration Form by 30 September</span></div>
+  <div class="meta"><span>Ch 6</span><span>6.2.5h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are correct CPD requirements under GL24. <span class="ref">SN 6.2.5h</span></div>
+    </div>
+  </div>
+</div>
+
+<h2 class="chapter">Chapter 7 — Ethical and Other Related Issues</h2>
+<p class="chap-meta">Duties to policyholders · Personal Data (Privacy) Ordinance · Equal opportunity · AML/CFT (GL3) · POBO · Insurance fraud</p>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">67</span><span class="q-stem">An insurance <b>broker</b> is normally the agent of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.1.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The insurer</li>
+    <li><span class="opt-key">B.</span>The Insurance Authority</li>
+    <li><span class="opt-key">C.</span>The policyholder</li>
+    <li><span class="opt-key">D.</span>The HKFI</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">An insurance broker is normally the agent of the <b>policyholder</b> and must be independent of any one insurer; a broker is required to maintain Professional Indemnity Insurance. <span class="ref">SN 7.1.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">68</span><span class="q-stem">An insurance <b>agent’s</b> principal is normally:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.1.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The policyholder</li>
+    <li><span class="opt-key">B.</span>The insurer</li>
+    <li><span class="opt-key">C.</span>The broker</li>
+    <li><span class="opt-key">D.</span>The government</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">An insurance agent’s principal is normally the <b>insurer</b>, so his primary responsibilities are to the insurer. Unlike brokers, agents are <b>not statutorily required</b> to buy PII (the insurer is vicariously liable for them). <span class="ref">SN 7.1.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">69</span><span class="q-stem">The Personal Data (Privacy) Ordinance (PDPO, Cap. 486) applies to:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The public sector only</li>
+    <li><span class="opt-key">B.</span>The private sector only</li>
+    <li><span class="opt-key">C.</span>Automatic (computerised) data only</li>
+    <li><span class="opt-key">D.</span>Both the public and private sectors, and both automatic and manual data</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The PDPO binds <b>all persons and the Government</b>, without distinguishing automatic and manual personal data. The Office of the Privacy Commissioner for Personal Data (OPCPD/PCPD) oversees it. <span class="ref">SN 7.2.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">70</span><span class="q-stem">How many Data Protection Principles (DPPs) does the PDPO stipulate?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>4</li>
+    <li><span class="opt-key">B.</span>5</li>
+    <li><span class="opt-key">C.</span>6</li>
+    <li><span class="opt-key">D.</span>8</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">There are <b>six</b> DPPs: (1) purpose &amp; manner of collection; (2) accuracy &amp; retention; (3) use; (4) security; (5) information generally available; (6) access &amp; correction. <span class="ref">SN 7.2.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">71</span><span class="q-stem">When collecting customers’ personal data, insurance practitioners should provide a Personal Information Collection Statement (PICS) stating all of the following <b>except</b>:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The insurer’s reinsurance arrangements</li>
+    <li><span class="opt-key">B.</span>The purpose of collecting the data</li>
+    <li><span class="opt-key">C.</span>The classes of persons to whom data may be transferred</li>
+    <li><span class="opt-key">D.</span>The right of access to and correction of the data</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A PICS states the <b>purpose</b> of collection, <b>classes of transferees</b>, <b>consequences of not supplying data</b>, and the <b>right of access/correction</b> — not reinsurance arrangements. <span class="ref">SN 7.2.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">72</span><span class="q-stem">The PDPO provisions on use of personal data in direct marketing (Part 6A) took effect on:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>1 January 2010</li>
+    <li><span class="opt-key">B.</span>1 April 2013</li>
+    <li><span class="opt-key">C.</span>23 September 2019</li>
+    <li><span class="opt-key">D.</span>1 August 2021</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Part 6A (direct marketing) took effect on <b>1 April 2013</b>, introducing the consent / “indication of no objection” regime. <span class="ref">SN 7.2.1e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">73</span><span class="q-stem">What is the maximum penalty for the PDPO offence of disclosing personal data obtained without the data user’s consent (e.g. “doxxing”)?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Fine HK$100,000 and 1 year’s imprisonment</li>
+    <li><span class="opt-key">B.</span>Fine HK$500,000 and 3 years’ imprisonment</li>
+    <li><span class="opt-key">C.</span>Fine HK$1,000,000 and 7 years’ imprisonment</li>
+    <li><span class="opt-key">D.</span>Fine HK$1,000,000 and 5 years’ imprisonment</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Disclosing personal data obtained without consent (with intent to gain/cause loss, or causing psychological harm) carries a maximum of <b>HK$1,000,000 fine and 5 years’ imprisonment</b>. <span class="ref">SN 7.2.1f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">74</span><span class="q-stem">Under the direct-marketing rules, using personal data in direct marketing without the required consent carries a maximum penalty of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Fine HK$100,000 only</li>
+    <li><span class="opt-key">B.</span>Fine HK$1,000,000 and 3 years’ imprisonment in all cases</li>
+    <li><span class="opt-key">C.</span>Fine HK$500,000 and 3 years (or HK$1,000,000 and 5 years where data is provided for gain)</li>
+    <li><span class="opt-key">D.</span>Fine HK$50,000 and 3 months</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Contraventions involving <b>provision of data for gain</b>: max <b>HK$1,000,000 + 5 years</b>. Other contraventions: max <b>HK$500,000 + 3 years</b>. <span class="ref">SN 7.2.1e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">75</span><span class="q-stem">Which body implements the four anti-discrimination Ordinances in Hong Kong?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.3.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Equal Opportunities Commission (EOC)</li>
+    <li><span class="opt-key">B.</span>The Insurance Authority</li>
+    <li><span class="opt-key">C.</span>The Privacy Commissioner</li>
+    <li><span class="opt-key">D.</span>The ICAC</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The <b>EOC</b> implements the Sex Discrimination Ordinance (1995), Disability Discrimination Ordinance (1995), Family Status Discrimination Ordinance (1997) and Race Discrimination Ordinance (2008). <span class="ref">SN 7.3.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">76</span><span class="q-stem">Charging women a lower life-insurance premium than men of the same age/health (because women live longer on average) is an example of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.3.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Unlawful sex discrimination</li>
+    <li><span class="opt-key">B.</span>Unfair discrimination</li>
+    <li><span class="opt-key">C.</span>Direct discrimination prohibited by the RDO</li>
+    <li><span class="opt-key">D.</span>“Fair” discrimination based on actuarial/statistical data</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Differential treatment based on <b>actuarial or other reliable data</b>, which is reasonable having regard to the data, is lawful “fair” discrimination. <span class="ref">SN 7.3.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">77</span><span class="q-stem">Which of the following would <b>not</b> be legitimate (fair) discrimination in insurance?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.3.3</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Charging a person with a serious medical condition a higher personal-accident premium</li>
+    <li><span class="opt-key">B.</span>Refusing household insurance to a woman simply because she is divorced</li>
+    <li><span class="opt-key">C.</span>Offering higher annuity payments to men based on life expectancy</li>
+    <li><span class="opt-key">D.</span>Declining to insure a high-risk disabled applicant based on reliable data</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Refusing cover <b>solely because a woman is divorced or a single parent</b> is unfair discrimination. Differential treatment must be based on reliable actuarial/statistical data and be reasonable. <span class="ref">SN 7.3.3</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">78</span><span class="q-stem">What are the three common stages of money laundering?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.4</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Placement, layering, integration</li>
+    <li><span class="opt-key">B.</span>Collection, concealment, spending</li>
+    <li><span class="opt-key">C.</span>Deposit, transfer, withdrawal</li>
+    <li><span class="opt-key">D.</span>Identification, verification, monitoring</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The three stages are <b>placement</b> (disposal of illicit cash into the financial system), <b>layering</b> (separating proceeds from their source), and <b>integration</b> (making wealth appear legitimate). <span class="ref">SN 7.4.4</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">79</span><span class="q-stem">Which inter-governmental body sets the global standards for combating money laundering, terrorist financing and proliferation financing?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.5</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The IA</li>
+    <li><span class="opt-key">B.</span>The UN Security Council</li>
+    <li><span class="opt-key">C.</span>The HKMA</li>
+    <li><span class="opt-key">D.</span>The Financial Action Task Force (FATF)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The <b>FATF</b> sets global AML/CFT/PF standards. Hong Kong, as a FATF member, implements its Recommendations. <span class="ref">SN 7.4.5</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">80</span><span class="q-stem">Which of the following is <b>not</b> one of the main Hong Kong ordinances concerned with ML, TF, PF and financial sanctions?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>AMLO (Cap. 615)</li>
+    <li><span class="opt-key">B.</span>Personal Data (Privacy) Ordinance (Cap. 486)</li>
+    <li><span class="opt-key">C.</span>DTROP (Cap. 405) and OSCO (Cap. 455)</li>
+    <li><span class="opt-key">D.</span>UNATMO (Cap. 575) and UNSO (Cap. 537)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The key ordinances are the <b>AMLO, DTROP, OSCO, UNATMO, UNSO and WMD(CPS)O</b>. The PDPO relates to privacy, not ML/TF. <span class="ref">SN 7.4.6</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">81</span><span class="q-stem">For the purposes of the AMLO, “financial institutions” (FIs / “insurance institutions”) include all of the following <b>except</b>:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Individual policyholders</li>
+    <li><span class="opt-key">B.</span>Authorized insurers (long-term business)</li>
+    <li><span class="opt-key">C.</span>Licensed individual insurance agents</li>
+    <li><span class="opt-key">D.</span>Licensed insurance agencies and broker companies</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">FIs include authorized insurers, licensed individual insurance agents, licensed insurance agencies and licensed insurance broker companies. Individual policyholders are customers, not FIs. <span class="ref">SN 7.4.6</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">82</span><span class="q-stem">Which of the following is a Customer Due Diligence (CDD) measure required under the AMLO/GL3?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Obtaining the customer’s credit card number</li>
+    <li><span class="opt-key">B.</span>Setting the customer’s premium rates</li>
+    <li><span class="opt-key">C.</span>Identifying and verifying the customer and any beneficial owner using reliable, independent sources</li>
+    <li><span class="opt-key">D.</span>Paying commissions to intermediaries</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">CDD includes identifying/verifying the customer and beneficial owner(s), understanding ownership/control structure, obtaining the purpose and intended nature of the relationship, and verifying any person acting on the customer’s behalf. <span class="ref">SN 7.4.7e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">83</span><span class="q-stem">For a customer or beneficial owner who is a non-Hong Kong Politically Exposed Person (PEP), an II must apply enhanced due diligence including:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>No additional measures</li>
+    <li><span class="opt-key">B.</span>Senior-management approval and establishing the source of wealth and source of funds</li>
+    <li><span class="opt-key">C.</span>Reporting immediately to the media</li>
+    <li><span class="opt-key">D.</span>Refusing to do business in all cases</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">For a non-Hong Kong PEP, an II must obtain <b>senior-management approval</b> for the relationship and take reasonable measures to establish the <b>source of wealth and source of funds</b>. <span class="ref">SN 7.4.7e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">84</span><span class="q-stem">The maximum penalty for a money-laundering offence under section 25 of the OSCO/DTROP is:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 months’ imprisonment and a HK$50,000 fine</li>
+    <li><span class="opt-key">B.</span>3 years’ imprisonment and a fine</li>
+    <li><span class="opt-key">C.</span>7 years’ imprisonment and a HK$500,000 fine</li>
+    <li><span class="opt-key">D.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Money laundering under s.25 OSCO/DTROP carries a maximum of <b>14 years’ imprisonment and a HK$5 million fine</b>. <span class="ref">SN 7.4.6b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">85</span><span class="q-stem">Failure to disclose knowledge or suspicion of suspicious property (as soon as reasonable) carries a maximum penalty of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 months’ imprisonment and a HK$50,000 fine</li>
+    <li><span class="opt-key">B.</span>3 years’ imprisonment and a fine</li>
+    <li><span class="opt-key">C.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+    <li><span class="opt-key">D.</span>7 years’ imprisonment and an unlimited fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Failing to disclose knowledge/suspicion (the reporting obligation) carries a max <b>3 months’ imprisonment and HK$50,000 fine</b>. “Tipping off” carries 3 years + fine. <span class="ref">SN 7.4.6b / 7.4.7h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">86</span><span class="q-stem">The offence of “tipping off” carries a maximum penalty of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 months’ imprisonment and a HK$50,000 fine</li>
+    <li><span class="opt-key">B.</span>7 years’ imprisonment and an unlimited fine</li>
+    <li><span class="opt-key">C.</span>3 years’ imprisonment and a fine</li>
+    <li><span class="opt-key">D.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">“Tipping off” — disclosing a matter likely to prejudice an investigation following a disclosure — carries a max <b>3 years’ imprisonment and a fine</b>. <span class="ref">SN 7.4.6b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">87</span><span class="q-stem">The maximum penalty for terrorist-financing offences under the UNATMO is:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 years’ imprisonment and a fine</li>
+    <li><span class="opt-key">B.</span>14 years’ imprisonment and an unlimited fine</li>
+    <li><span class="opt-key">C.</span>7 years’ imprisonment and an unlimited fine</li>
+    <li><span class="opt-key">D.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">TF offences under the UNATMO (s.7 &amp; 8) carry a max <b>14 years’ imprisonment and an unlimited fine</b>. <span class="ref">SN 7.4.6c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">88</span><span class="q-stem">Suspicious Transaction Reports (STRs) must be filed with which body?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The Insurance Authority</li>
+    <li><span class="opt-key">B.</span>The ICAC</li>
+    <li><span class="opt-key">C.</span>The Privacy Commissioner</li>
+    <li><span class="opt-key">D.</span>The Joint Financial Intelligence Unit (JFIU)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">STRs must be filed with the <b>JFIU</b> (a unit of the Hong Kong Police Force) as soon as reasonable. <span class="ref">SN 7.4.7h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">89</span><span class="q-stem">Under the AMLO/GL3, CDD information and transaction records must be kept throughout the business relationship and for at least how long after it ends?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7i</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>5 years</li>
+    <li><span class="opt-key">B.</span>3 years</li>
+    <li><span class="opt-key">C.</span>7 years</li>
+    <li><span class="opt-key">D.</span>2 years</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">AML/CFT records must be kept for at least <b>5 years</b> after the end of the business relationship. (Note: broker-company financial records under the Rules are kept 7 years — a different requirement.) <span class="ref">SN 7.4.7i</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">90</span><span class="q-stem">An II should conduct its Institutional ML/TF Risk Assessment (IRA) how often?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Annually only</li>
+    <li><span class="opt-key">B.</span>Once, at licensing</li>
+    <li><span class="opt-key">C.</span>Every two years and upon material trigger events</li>
+    <li><span class="opt-key">D.</span>Every five years</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The IRA should be conducted <b>every two years and upon trigger events</b> material to the II’s business and risk exposure. <span class="ref">SN 7.4.7b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">91</span><span class="q-stem">An II’s AML/CFT Systems must include appointment of a Compliance Officer (CO) and a:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Responsible officer</li>
+    <li><span class="opt-key">B.</span>Money Laundering Reporting Officer (MLRO)</li>
+    <li><span class="opt-key">C.</span>Appointed actuary</li>
+    <li><span class="opt-key">D.</span>External auditor</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Senior management must appoint a <b>Compliance Officer (CO)</b> for the AML/CFT systems and an <b>MLRO</b> as the central reference point for suspicious-transaction reporting. <span class="ref">SN 7.4.7c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">92</span><span class="q-stem"><span class="new2024" style="color:#fff;background:var(--accent2);padding:1px 7px;border-radius:6px;font-size:.72rem">2024 new</span> &nbsp;“Proliferation financing” (PF) generally refers to providing funds or financial services used, in whole or in part, for:</span></div>
+  <div class="meta"><span>Ch 7</span><span class="new2024">7.4.3 · NEW in 2024</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Personal investment and savings</li>
+    <li><span class="opt-key">B.</span>Paying insurance premiums</li>
+    <li><span class="opt-key">C.</span>Legitimate charitable donations</li>
+    <li><span class="opt-key">D.</span>The manufacture, acquisition, development, export or use of nuclear, chemical or biological weapons and their means of delivery</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">PF is providing funds/services for <b>weapons of mass destruction (nuclear, chemical, biological) and their means of delivery</b>, in contravention of national laws or international obligations. This topic is <b>new in the 2024 edition</b>. <span class="ref">SN 7.4.3</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">93</span><span class="q-stem"><span class="new2024" style="color:#fff;background:var(--accent2);padding:1px 7px;border-radius:6px;font-size:.72rem">2024 new</span> &nbsp;Section 4 of which ordinance prohibits providing services where a person believes or suspects (on reasonable grounds) that they may be connected to proliferation financing?</span></div>
+  <div class="meta"><span>Ch 7</span><span class="new2024">7.4.3 / 7.4.6d · NEW</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>The AMLO (Cap. 615)</li>
+    <li><span class="opt-key">B.</span>The OSCO (Cap. 455)</li>
+    <li><span class="opt-key">C.</span>The Weapons of Mass Destruction (Control of Provision of Services) Ordinance — WMD(CPS)O (Cap. 526)</li>
+    <li><span class="opt-key">D.</span>The DTROP (Cap. 405)</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The <b>WMD(CPS)O (Cap. 526)</b> s.4 prohibits providing services (including lending money / financial assistance) where the person believes/suspects they may be connected to PF. <span class="ref">SN 7.4.3 / 7.4.6d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">94</span><span class="q-stem">Under the POBO, an agent who, without the permission of his principal, solicits or accepts an advantage when conducting his principal’s business commits an offence under:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Section 8</li>
+    <li><span class="opt-key">B.</span>Section 9(1)</li>
+    <li><span class="opt-key">C.</span>Section 9(3)</li>
+    <li><span class="opt-key">D.</span>Section 19</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp"><b>s.9(1)</b> covers an agent soliciting/accepting an advantage without the principal’s permission; <b>s.9(2)</b> covers the offeror; <b>s.9(3)</b> covers using false documents to deceive the principal. <span class="ref">SN 7.5.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">95</span><span class="q-stem">The maximum penalty for bribery offences under section 9 of the POBO is:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 months’ imprisonment and a HK$50,000 fine</li>
+    <li><span class="opt-key">B.</span>3 years’ imprisonment and a fine</li>
+    <li><span class="opt-key">C.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+    <li><span class="opt-key">D.</span>7 years’ imprisonment and a HK$500,000 fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Offences under s.9 POBO carry a maximum of <b>7 years’ imprisonment and a HK$500,000 fine</b>. <span class="ref">SN 7.5.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">96</span><span class="q-stem">Which of the following is <b>excluded</b> from the definition of “advantage” under the POBO?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.1b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Entertainment (food and drink consumed on the spot)</li>
+    <li><span class="opt-key">B.</span>Money and gifts</li>
+    <li><span class="opt-key">C.</span>Loans, commission and fees</li>
+    <li><span class="opt-key">D.</span>Employment and services</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">“Advantage” is broadly defined (money, gift, loan, reward, commission, office, employment, contract, service, favour, etc.) but <b>entertainment (food and drink consumed on the spot) is excluded</b>. <span class="ref">SN 7.5.1b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">97</span><span class="q-stem">Under section 19 of the POBO, which of the following is <b>not</b> a defence to bribery?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.1b</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Custom/practice in the trade, profession or calling</li>
+    <li><span class="opt-key">B.</span>A claim that the act requested was not actually carried out</li>
+    <li><span class="opt-key">C.</span>Both A and B are not defences</li>
+    <li><span class="opt-key">D.</span>Neither A nor B is relevant to the POBO</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">s.19: custom/profession is no defence; s.11: claiming the act was not carried out is no defence. The offeror and recipient commit an offence regardless of whether the bribery was actually performed. <span class="ref">SN 7.5.1b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">98</span><span class="q-stem">The ICAC’s 24-hour report corruption hotline is:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.2</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>25 266 000</li>
+    <li><span class="opt-key">B.</span>25 266 366</li>
+    <li><span class="opt-key">C.</span>28 662 522</li>
+    <li><span class="opt-key">D.</span>21 109 644</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★</span></div>
+      <div class="exp">The ICAC’s 24-hour report-corruption hotline is <b>25 266 366</b>; all complaints are handled in strict confidence. <span class="ref">SN 7.5.2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">99</span><span class="q-stem">In criminal law, a “secondary party” to an offence is one who:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.6.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Commits the offence alone</li>
+    <li><span class="opt-key">B.</span>Is always less responsible than the principal</li>
+    <li><span class="opt-key">C.</span>Cannot be punished</li>
+    <li><span class="opt-key">D.</span>Aids, abets, counsels or procures the commission of the offence</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A secondary party <b>aids, abets, counsels or procures</b> the offence and is generally <b>equally responsible</b> as the principal. Inactivity (failing to stop a subordinate) can also constitute aiding. <span class="ref">SN 7.6.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">100</span><span class="q-stem">Which of the following are the practical steps an insurance intermediary should take to prevent insurance fraud?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.6.3</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Vigilance and diligence</li>
+    <li><span class="opt-key">B.</span>Communication with the insurer</li>
+    <li><span class="opt-key">C.</span>Vigilance, diligence, communication and integrity</li>
+    <li><span class="opt-key">D.</span>Confronting the client directly with accusations</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The practical steps are <b>vigilance, diligence, communication and integrity</b>. The intermediary should assist the insurer and the law, but only the insurer should allege fraud. <span class="ref">SN 7.6.3</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">101</span><span class="q-stem">Where an insurance intermediary possesses information that could adversely affect a proposal for insurance, the intermediary must:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.6.2a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Never omit or misrepresent it — doing so with intent to mislead the insurer is fraud</li>
+    <li><span class="opt-key">B.</span>Omit it if it makes the risk uninsurable</li>
+    <li><span class="opt-key">C.</span>Disclose it only after the policy is issued</li>
+    <li><span class="opt-key">D.</span>Let the insurer discover it later</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Information adverse to an application must <b>never be omitted or misrepresented</b>; doing so with intent to mislead the insurer is fraud, and the intermediary is bound by utmost good faith. <span class="ref">SN 7.6.2a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">102</span><span class="q-stem">A data subject may complain to the PCPD about a suspected breach of the PDPO and may also:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Do nothing further</li>
+    <li><span class="opt-key">B.</span>Sue the data user for compensation for damage, including injured feelings</li>
+    <li><span class="opt-key">C.</span>Sue the data processor directly in all cases</li>
+    <li><span class="opt-key">D.</span>Only report to the police</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">A data subject may complain to the PCPD and <b>sue the data user for compensation (including injured feelings)</b>. Where a data processor caused the breach, the data user (principal) is liable, not the processor directly. <span class="ref">SN 7.2.1g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">103</span><span class="q-stem">Which of the following is an exemption under the PDPO?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Personal data held for domestic or recreational purposes</li>
+    <li><span class="opt-key">B.</span>Certain employment-related personal data held by employers</li>
+    <li><span class="opt-key">C.</span>Data needed for prevention/detection of crime or security/defence</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Exemptions include <b>domestic/recreational data, certain employment-related data, and public/social interest</b> (security, defence, crime prevention/detection, tax, health, legal privilege, news, statistics/research, etc.). <span class="ref">SN 7.2.1h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">104</span><span class="q-stem">When screening for financial sanctions, an II should screen customers and beneficial owners against sanction lists:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7g</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Only at the start of the relationship</li>
+    <li><span class="opt-key">B.</span>Only when a claim is made</li>
+    <li><span class="opt-key">C.</span>At the establishment of the relationship and against all new/updated designations as soon as practicable</li>
+    <li><span class="opt-key">D.</span>Never — screening is optional</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">An II must screen customers and beneficial owners <b>at the establishment of the relationship</b> and against <b>all new/updated designations as soon as practicable</b>, and also screen payees (e.g. policy beneficiaries) at payout. <span class="ref">SN 7.4.7g</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="A">
+  <div class="q-head"><span class="q-no">105</span><span class="q-stem">Where an individual insurance agent has reported a suspicion to the MLRO in accordance with the II’s procedures, the agent’s statutory reporting obligation is:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7h</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Fully satisfied once reported internally to the MLRO</li>
+    <li><span class="opt-key">B.</span>Only satisfied after reporting to the JFIU personally</li>
+    <li><span class="opt-key">C.</span>Not satisfied until the police confirm</li>
+    <li><span class="opt-key">D.</span>Waived for insurance agents</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: A</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Once staff have reported suspicion to the MLRO per the II’s procedures, the <b>statutory obligation is fully satisfied</b>. Staff must still avoid “tipping off”. <span class="ref">SN 7.4.7h</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">106</span><span class="q-stem">Records of AML/CFT staff training (who, when, and type of training) must be maintained for a minimum of:</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7j</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>5 years</li>
+    <li><span class="opt-key">B.</span>3 years</li>
+    <li><span class="opt-key">C.</span>7 years</li>
+    <li><span class="opt-key">D.</span>1 year</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">AML/CFT training records must be kept for at least <b>3 years</b>. (Distinguish from CDD/transaction records, which are kept 5 years.) <span class="ref">SN 7.4.7j</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">107</span><span class="q-stem"><span style="color:#fff;background:var(--accent2);padding:1px 7px;border-radius:6px;font-size:.72rem">2024 new</span> &nbsp;What is the maximum penalty for contravening the targeted financial sanctions under the United Nations Sanctions (DPRK) Regulation (Cap. 537AE) and the United Nations Sanctions (Iran) Regulation?</span></div>
+  <div class="meta"><span>Ch 7</span><span class="new2024">7.4.6d · NEW in 2024</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>3 months’ imprisonment and a HK$50,000 fine</li>
+    <li><span class="opt-key">B.</span>7 years’ imprisonment and an unlimited fine</li>
+    <li><span class="opt-key">C.</span>14 years’ imprisonment and a HK$5,000,000 fine</li>
+    <li><span class="opt-key">D.</span>3 years’ imprisonment and a fine</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">Contravening targeted financial sanctions under the <b>DPRK and Iran Regulations</b> carries a maximum of <b>7 years’ imprisonment and an unlimited fine</b>. The WMD(CPS)O also carries 7 years + unlimited fine. <span class="ref">SN 7.4.6d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">108</span><span class="q-stem"><span style="color:#fff;background:var(--accent2);padding:1px 7px;border-radius:6px;font-size:.72rem">2024 new</span> &nbsp;What is the maximum penalty for the most serious offence under the Anti-Money Laundering and Counter-Terrorist Financing Ordinance (AMLO, Cap. 615)?</span></div>
+  <div class="meta"><span>Ch 7</span><span class="new2024">7.4.6a · wording updated 2024</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>A HK$500,000 fine and 7 years’ imprisonment</li>
+    <li><span class="opt-key">B.</span>A HK$5,000,000 fine and 14 years’ imprisonment</li>
+    <li><span class="opt-key">C.</span>A HK$1,000,000 fine and 7 years’ imprisonment</li>
+    <li><span class="opt-key">D.</span>A HK$1,000,000 fine and 3 years’ imprisonment</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The maximum penalty for the most serious offence under the AMLO is a <b>fine of HK$1,000,000 and imprisonment of 7 years</b>. Supervisory sanctions on an II include public reprimand, remedial action, and a pecuniary penalty up to the greater of HK$10m or 3× profit/cost avoided. <span class="ref">SN 7.4.6a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">109</span><span class="q-stem"><span style="color:#fff;background:var(--accent2);padding:1px 7px;border-radius:6px;font-size:.72rem">2024 new</span> &nbsp;Under GL3, an insurance institution’s Institutional ML/TF Risk Assessment (IRA) must identify and assess risks in relation to which of the following?</span></div>
+  <div class="meta"><span>Ch 7</span><span class="new2024">7.4.7b · NEW in 2024</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Its customers, and the countries/jurisdictions its customers are from or in</li>
+    <li><span class="opt-key">B.</span>The countries/jurisdictions where it has operations, and its products/services/transactions</li>
+    <li><span class="opt-key">C.</span>Its delivery/distribution channels</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">The IRA must cover <b>customers; customer countries/jurisdictions; the II’s operational countries/jurisdictions; products/services/transactions; and delivery/distribution channels</b> — i.e. all of the above. <span class="ref">SN 7.4.7b</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">110</span><span class="q-stem">Where data processing is outsourced to a "data processor" (a person who processes data on another's behalf and not for its own purposes), the data user should use contractual or other means to ensure compliance with which Data Protection Principles?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1d</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>DPP1 and DPP3</li>
+    <li><span class="opt-key">B.</span>DPP2 and DPP4</li>
+    <li><span class="opt-key">C.</span>DPP5 and DPP6</li>
+    <li><span class="opt-key">D.</span>All six DPPs</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The data user should ensure the processor complies with <b>DPP2 (accuracy/retention) and DPP4 (security)</b>. <span class="ref">SN 7.2.1d</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">111</span><span class="q-stem">Which statement correctly describes the status of GL3 (Guideline on AML/CFT)?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>It is primary legislation binding on all persons</li>
+    <li><span class="opt-key">B.</span>It is admissible in evidence and the IA must have regard to it when deciding Schedule 2 contraventions</li>
+    <li><span class="opt-key">C.</span>It applies only to banks and money service operators</li>
+    <li><span class="opt-key">D.</span>It has no relevance to fitness and properness</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">GL3 is <b>admissible in evidence</b> and the <b>IA must have regard to it</b> when deciding Schedule 2 contraventions; non-compliance may reflect adversely on fit and proper status. <span class="ref">SN 7.4.7a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">112</span><span class="q-stem">Per the FATF, insurance is a known typology used in which stages of money laundering, especially through long-term products?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.5</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Placement and layering</li>
+    <li><span class="opt-key">B.</span>Layering and integration</li>
+    <li><span class="opt-key">C.</span>Placement only</li>
+    <li><span class="opt-key">D.</span>Integration only</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Insurance is used in the <b>layering and integration</b> stages, especially long-term products (large premiums, surrender/maturity, beneficiary changes, use as collateral). <span class="ref">SN 7.4.5</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="C">
+  <div class="q-head"><span class="q-no">113</span><span class="q-stem">Insurance fraud can arise at which stage(s) of the insurance relationship?</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.6.2a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>Application stage only</li>
+    <li><span class="opt-key">B.</span>Claims stage only</li>
+    <li><span class="opt-key">C.</span>Both application and claims stages</li>
+    <li><span class="opt-key">D.</span>Neither stage</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: C</span><span class="hot">Hot ★★</span></div>
+      <div class="exp">Fraud can arise at <b>application stage</b> (falsifying or hiding material information) and <b>claims stage</b> (inflated or fabricated claims). <span class="ref">SN 7.6.2a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">114</span><span class="q-stem">Which of the following statements about intermediaries' duties are correct?<br>(i) An insurance broker is normally the agent of the policyholder<br>(ii) A broker must be independent of any one insurer and give impartial advice with the client's interests paramount<br>(iii) An insurance agent's principal is normally the insurer<br>(iv) An insurance agent is statutorily required to maintain professional indemnity insurance (PII)</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — an agent is <b>not statutorily required to buy PII</b> (the insurer is vicariously liable for its appointed agents under section 68). Brokers, however, must maintain PII. <span class="ref">SN 7.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">115</span><span class="q-stem">Which of the following are Data Protection Principles (DPPs) under the PDPO?<br>(i) Purpose and manner of collection<br>(ii) Accuracy and duration of retention<br>(iii) Use — only for the original purpose or a directly related purpose<br>(iv) Access and correction</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1c</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are DPPs (the six also include Security, DPP4, and Information generally available, DPP5). <span class="ref">SN 7.2.1c</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">116</span><span class="q-stem">A Personal Information Collection Statement (PICS) should state which of the following?<br>(i) The purpose of collection<br>(ii) The classes of persons to whom the data may be transferred<br>(iii) The consequences of not supplying the data<br>(iv) The data subject's rights of access and correction</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">A PICS must state <b>purpose, classes of transferees, consequences of not supplying data, and access/correction rights</b> — all of the above. <span class="ref">SN 7.2.1a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">117</span><span class="q-stem">Which of the following are defences to the PDPO offence of disclosing personal data obtained without the data user's consent (anti-"doxxing")?<br>(i) Reasonable belief that disclosure was necessary to prevent or detect crime<br>(ii) The disclosure was required by law<br>(iii) The disclosure was made with the data user's consent<br>(iv) The disclosure was for a prescribed news activity in the public interest</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.2.1f</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are listed <b>defences</b> to the doxxing offence. <span class="ref">SN 7.2.1f</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">118</span><span class="q-stem">The Equal Opportunities Commission (EOC) implements Ordinances prohibiting discrimination on which grounds?<br>(i) Sex, marital status and pregnancy<br>(ii) Disability<br>(iii) Family status<br>(iv) Race</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.3.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">The EOC implements four Ordinances covering <b>sex/marital status/pregnancy, disability, family status and race</b> — all of the above. <span class="ref">SN 7.3.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">119</span><span class="q-stem">For the purposes of the AMLO, "financial institutions" (insurance institutions) include which of the following?<br>(i) Authorised insurers<br>(ii) Licensed individual insurance agents<br>(iii) Licensed insurance agencies<br>(iv) Licensed insurance broker companies</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.6a</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">All four are insurance institutions under the AMLO (the 2024 edition also introduces "Designated Non-Financial Business Professionals", DNFBP). <span class="ref">SN 7.4.6a</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="D">
+  <div class="q-head"><span class="q-no">120</span><span class="q-stem">Customer Due Diligence (CDD) under GL3 includes which of the following measures?<br>(i) Identify and verify the customer<br>(ii) Identify and verify the beneficial owner and understand ownership/control<br>(iii) Obtain the purpose and intended nature of the relationship<br>(iv) Identify and verify any person acting on behalf of the customer</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.4.7e</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: D</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">These are the four core <b>CDD measures</b> under GL3. <span class="ref">SN 7.4.7e</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">121</span><span class="q-stem">Under the Prevention of Bribery Ordinance (POBO), which of the following statements are correct?<br>(i) Section 9(1): an agent must not solicit or accept an advantage without the principal's permission<br>(ii) Section 9(2): the offeror of an advantage commits an offence<br>(iii) Entertainment (food and drink consumed on the spot) is excluded from "advantage"<br>(iv) The custom of a profession (section 19) is a defence to bribery</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.5.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — <b>the custom of a profession (s.19) is NOT a defence</b> (nor is a claim the act was not carried out, s.11). (i), (ii) and (iii) are correct. <span class="ref">SN 7.5.1</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="q" data-ans="B">
+  <div class="q-head"><span class="q-no">122</span><span class="q-stem">In respect of a "secondary party" to an offence, which of the following statements are correct?<br>(i) A secondary party aids, abets, counsels or procures the offence<br>(ii) A secondary party is equally responsible as the principal offender<br>(iii) Inactivity — deliberately failing to stop a subordinate — can also constitute aiding<br>(iv) The required mental element is an intention that the crime be committed</span></div>
+  <div class="meta"><span>Ch 7</span><span>7.6.1</span></div>
+  <ol class="opts" type="A">
+    <li><span class="opt-key">A.</span>(i) and (ii) only</li>
+    <li><span class="opt-key">B.</span>(i), (ii) and (iii) only</li>
+    <li><span class="opt-key">C.</span>(i), (ii) and (iv) only</li>
+    <li><span class="opt-key">D.</span>All of the above</li>
+  </ol>
+  <div class="reveal"><button>Show answer</button>
+    <div class="ans"><div class="ans-line"><span class="ans-key">Answer: B</span><span class="hot">Hot ★★★</span></div>
+      <div class="exp">(iv) is wrong — the mental element is an <b>intention to aid (with knowledge that the conduct could assist the crime)</b>, not an intention that the crime be committed. (i), (ii) and (iii) are correct. <span class="ref">SN 7.6.1</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Built for self-study · Questions based on the IIQE Paper 1 Study Notes, 2024 Edition (8th Edition, Nov 2024), Insurance Authority · Chapters 6 &amp; 7.<br>
+  Progress is cached on this device (localStorage) — works offline and ready for GitHub Pages.
+</footer>
+
+</div>
+<script>
+  const STORE_KEY = 'iiqeP1_progress_v1';
+  const LETTERS = ['A','B','C','D'];
+  const qs = Array.from(document.querySelectorAll('.q'));
+  const TOTAL = qs.length;
+
+  function loadState(){
+    try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); return (s && typeof s === 'object') ? s : {}; }
+    catch (e) { return {}; }
+  }
+  function saveState(state){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  let state = loadState();
+
+  function refreshProgress(){
+    const answered = Object.keys(state).length;
+    const el = document.getElementById('progCount');
+    const tot = document.getElementById('progTotal');
+    if (el) el.textContent = answered;
+    if (tot) tot.textContent = TOTAL;
+    const bar = document.getElementById('progBar');
+    if (bar) bar.style.width = (answered / TOTAL * 100).toFixed(1) + '%';
+  }
+
+  function grade(q, chosen){
+    const correct = q.dataset.ans;
+    const opts = Array.from(q.querySelectorAll('.opts li'));
+    const ans = q.querySelector('.ans');
+    const btn = q.querySelector('.reveal button');
+    const ci = LETTERS.indexOf(correct);
+    const ki = LETTERS.indexOf(chosen);
+    opts[ci].classList.add('correct');
+    if (chosen === correct) opts[ki].classList.add('correct');
+    else opts[ki].classList.add('wrong');
+    let fb = q.querySelector('.feedback');
+    if (!fb) { fb = document.createElement('div'); fb.className = 'feedback'; q.querySelector('.reveal').before(fb); }
+    const ok = chosen === correct;
+    fb.className = 'feedback ' + (ok ? 'ok' : 'no');
+    fb.textContent = ok ? 'Correct ✓' : 'Incorrect ✗ — correct answer is ' + correct;
+    ans.classList.add('show');
+    btn.textContent = 'Hide answer';
+  }
+
+  qs.forEach((q, idx) => {
+    const btn = q.querySelector('.reveal button');
+    const ans = q.querySelector('.ans');
+    const opts = Array.from(q.querySelectorAll('.opts li'));
+    const key = String(idx);
+    let answered = (state[key] !== undefined && state[key] !== null);
+
+    btn.addEventListener('click', () => {
+      const show = !ans.classList.contains('show');
+      ans.classList.toggle('show', show);
+      btn.textContent = show ? 'Hide answer' : 'Show answer';
+    });
+
+    opts.forEach((li, i) => {
+      li.addEventListener('click', () => {
+        if (answered) return;
+        answered = true;
+        const chosen = LETTERS[i];
+        state[key] = chosen;
+        saveState(state);
+        grade(q, chosen);
+        refreshProgress();
+      });
+    });
+  });
+
+  // restore saved answers from this device
+  qs.forEach((q, idx) => {
+    const chosen = state[String(idx)];
+    if (chosen !== undefined && chosen !== null) grade(q, chosen);
+  });
+  refreshProgress();
+
+  document.getElementById('showAll').addEventListener('click', () => {
+    qs.forEach(q => { q.querySelector('.ans').classList.add('show'); q.querySelector('.reveal button').textContent = 'Hide answer'; });
+  });
+  document.getElementById('hideAll').addEventListener('click', () => {
+    qs.forEach(q => { q.querySelector('.ans').classList.remove('show'); q.querySelector('.reveal button').textContent = 'Show answer'; });
+  });
+  document.getElementById('reset').addEventListener('click', () => {
+    if (confirm('Reset all progress? This clears every saved answer on this device.')) {
+      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+      location.reload();
+    }
+  });
+</script>
+</body>
+</html>
